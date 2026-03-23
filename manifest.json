@@ -1,6 +1,6 @@
 {
     "name": "Floppy Fly",
-    "short_name": "Flappy Fly",
+    "short_name": "Floppy Fly",
     "start_url": "index.html",
     "display": "standalone",
     "background_color":"rgb(61, 132, 255)",
