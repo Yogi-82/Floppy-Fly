@@ -226,10 +226,11 @@ scene('gra', () =>{
         font: 'retro',
         size: '38'
     }),
-    pos(width() / 2 + 2 , 24),
+    pos(width() / 2 + 2, 24),
     color(0,0,0),
     { value: 0 },
-    z(99)
+    z(99),
+    anchor('center')
     ])
 
     let score = add([
@@ -237,9 +238,10 @@ scene('gra', () =>{
         font: 'retro',
         size: '38'
     }),
-    pos(width() / 2, 22),
+    pos(width() / 2, 26),
     { value: 0 },
-    z(100)
+    z(100),
+    anchor('center')
     ])
     score.text = score.value
     scoreShadow.text = scoreShadow.value
