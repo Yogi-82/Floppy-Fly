@@ -1,4 +1,4 @@
-const nazwaCache = "FloppyFly-v2";
+const nazwaCache = "FloppyFly";
 
 const plikiDoZapisania = [
     "./",
