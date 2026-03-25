@@ -207,7 +207,7 @@ scene('gra', () =>{
 
     const background2 = add([
         sprite('background'),
-        pos(width() - 2,0),
+        pos(width() - 5,0),
         scale(width() / 320, height() / 480),
         fixed(),
         move(LEFT, 50),
