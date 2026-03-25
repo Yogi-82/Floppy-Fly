@@ -21,7 +21,7 @@ if("serviceWorker" in navigator){
 }
 
 loadSprite('papiez', './sprite/papiez.png')
-loadSprite('background', './sprite/background_floppy.png')
+loadSprite('background', './sprite/background_floppy.png', {smoothing: false})
 loadFont("retro", './font/Minecraft.ttf')
 loadSprite('player', "./sprite/fly.png",{
     sliceX: 3,
@@ -210,7 +210,7 @@ scene('gra', () =>{
 
     const background2 = add([
         sprite('background'),
-        pos(bgWidth - 2,0),
+        pos(bgWidth - 20,0),
         scale(bgScale, height() / 480),
         fixed(),
         move(LEFT, 50),
