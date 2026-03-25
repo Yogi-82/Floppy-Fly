@@ -210,7 +210,7 @@ scene('gra', () =>{
 
     const background2 = add([
         sprite('background'),
-        pos(bgWidth - 20,0),
+        pos(bgWidth,0),
         scale(bgScale, height() / 480),
         fixed(),
         move(LEFT, 50),
@@ -218,8 +218,18 @@ scene('gra', () =>{
     ])
 
     onUpdate('tlo', (p) => {
-        if (p.pos.x < -bgWidth){
-            p.pos.x = bgWidth - 2
+        if (p.pos.x <= -bgWidth){
+            p.pos.x = bgWidth
+        }
+    })
+    
+    // Po każdym frame'cie upewnij się że nie ma luki między sprite'ami
+    onUpdate(() => {
+        if (background2.pos.x - background1.pos.x > bgWidth + 1) {
+            background2.pos.x = background1.pos.x + bgWidth
+        }
+        if (background1.pos.x - background2.pos.x > bgWidth + 1) {
+            background1.pos.x = background2.pos.x + bgWidth
         }
     })
 
