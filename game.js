@@ -1,10 +1,17 @@
 /*Wiadomość dla ciebie ciekawska istoto, to co tu widzisz to jest kamień milowy programisty
 który został stworzony na trzeźwo ale czy spełna rozumu? Tego nie wiem*/
 kaboom({
-    width: 320,
-    height: 480,
-    letterbox: true,
+    width: window.innerWidth,
+    height: window.innerHeight,
+    letterbox: false,
     background: [61, 132, 255],
+})
+
+// Obsługa zmiany rozmiaru okna
+window.addEventListener('resize', () => {
+    if (window.innerWidth !== width() || window.innerHeight !== height()) {
+        // Gra automatycznie się przeskaluje dzięki kaplay
+    }
 })
 
 if("serviceWorker" in navigator){
@@ -40,8 +47,8 @@ loadSound('mango', './sound/DiscoAdamusSigmaBoy & Rastafarianin Mango67 Viral Ti
 loadSound('barka', './sound/barka-made-with-Voicemod.mp3')
 
 const hitboxRozmiar =  vec2(0.25, 0.95)
-const easyMode = { gap: 220,  nazwa: "Easy" };
-const normalMode = {gap: 150,  nazwa: "Hard" };
+const easyMode = { gap: 360,  nazwa: "Easy" };
+const normalMode = {gap: 330,  nazwa: "Hard" };
 
 let gameMode = localStorage.getItem('difficulty') 
 let wybraneUstawienia;
@@ -63,7 +70,7 @@ scene('ustawienia', ()=>{
     add([
         sprite('background'),
         pos(0,0),
-        scale(),
+        scale(width() / 320, height() / 480),
         fixed()
     ])
     add([
@@ -124,7 +131,7 @@ scene('start', ()=>{
     add([
     sprite('background'),
     pos(0,0),
-    scale(),
+    scale(width() / 320, height() / 480),
     fixed()
     ])
     add([
@@ -192,7 +199,7 @@ scene('gra', () =>{
     const background1 = add([
     sprite('background'),
     pos(0,0),
-    scale(),
+    scale(width() / 320, height() / 480),
     fixed(),
     move(LEFT, 50),
     'tlo'
@@ -201,7 +208,7 @@ scene('gra', () =>{
     const background2 = add([
         sprite('background'),
         pos(width(),0),
-        scale(),
+        scale(width() / 320, height() / 480),
         fixed(),
         move(LEFT, 50),
         'tlo'
@@ -226,11 +233,10 @@ scene('gra', () =>{
         font: 'retro',
         size: '38'
     }),
-    pos(width() / 2 + 2, 24),
+    pos(width() / 2 + 2 , 24),
     color(0,0,0),
     { value: 0 },
-    z(99),
-    anchor('center')
+    z(99)
     ])
 
     let score = add([
@@ -238,10 +244,9 @@ scene('gra', () =>{
         font: 'retro',
         size: '38'
     }),
-    pos(width() / 2, 26),
+    pos(width() / 2, 22),
     { value: 0 },
-    z(100),
-    anchor('center')
+    z(100)
     ])
     score.text = score.value
     scoreShadow.text = scoreShadow.value
@@ -403,7 +408,7 @@ scene('koniec', (zdobytePunkty)=>{
     add([
     sprite('background'),
     pos(0,0),
-    scale(),
+    scale(width() / 320, height() / 480),
     fixed()
     ])
 
