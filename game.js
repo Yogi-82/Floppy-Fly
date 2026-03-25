@@ -226,9 +226,13 @@ scene('gra', () =>{
         'tlo'
     ])
 
+    const backgrounds = [background1, background2, background3]
+    let bgIndex = 0
+
     onUpdate('tlo', (p) => {
         if (p.pos.x <= -bgWidth){
-            p.pos.x = bgWidth * 2
+            bgIndex = (bgIndex + 1) % 3
+            p.pos.x = backgrounds[(bgIndex + 2) % 3].pos.x + bgWidth
         }
     })
 
