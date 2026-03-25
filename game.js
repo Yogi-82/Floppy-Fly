@@ -47,7 +47,7 @@ loadSound('mango', './sound/DiscoAdamusSigmaBoy & Rastafarianin Mango67 Viral Ti
 loadSound('barka', './sound/barka-made-with-Voicemod.mp3')
 
 const hitboxRozmiar =  vec2(0.25, 0.95)
-const easyMode = { gap: 360,  nazwa: "Easy" };
+const easyMode = { gap: 365,  nazwa: "Easy" };
 const normalMode = {gap: 330,  nazwa: "Hard" };
 
 let gameMode = localStorage.getItem('difficulty') 
@@ -207,7 +207,7 @@ scene('gra', () =>{
 
     const background2 = add([
         sprite('background'),
-        pos(width(),0),
+        pos(width() - 2,0),
         scale(width() / 320, height() / 480),
         fixed(),
         move(LEFT, 50),
