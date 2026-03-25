@@ -196,10 +196,13 @@ scene('gra', () =>{
     let gap = wybraneUstawienia.gap
     let speed = 200;
 
+    const bgScale = width() / 320;
+    const bgWidth = 320 * bgScale;
+
     const background1 = add([
     sprite('background'),
     pos(0,0),
-    scale(width() / 320, height() / 480),
+    scale(bgScale, height() / 480),
     fixed(),
     move(LEFT, 50),
     'tlo'
@@ -207,16 +210,16 @@ scene('gra', () =>{
 
     const background2 = add([
         sprite('background'),
-        pos(width() - 5,0),
-        scale(width() / 320, height() / 480),
+        pos(bgWidth - 2,0),
+        scale(bgScale, height() / 480),
         fixed(),
         move(LEFT, 50),
         'tlo'
     ])
 
     onUpdate('tlo', (p) => {
-        if (p.pos.x <= - width()){
-            p.pos.x = width()
+        if (p.pos.x < -bgWidth){
+            p.pos.x = bgWidth - 2
         }
     })
 
